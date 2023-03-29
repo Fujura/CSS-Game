@@ -1,0 +1,404 @@
+*{
+    font-family:'Poppins', sans-serif;
+    margin: 0;
+}
+
+#back_window{
+    display: none;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    width: 100%;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.2);
+    overflow-y: scroll;
+    padding-bottom: 30px;
+}
+#window1{
+    margin: 0 auto;
+    border-radius: 10px;
+    position: relative;
+    width: 80%;
+    padding-bottom: 30px;
+    top: 15px;
+    box-shadow: 0px 0px 8px 2px rgb(30, 49, 83);
+    background-color: rgb(234,230,255);
+    margin-bottom: 30px;
+    display: none;
+}
+#window2{
+    margin: 0 auto;
+    border-radius: 10px;
+    position: relative;
+    width: 80%;
+    padding-bottom: 30px;
+    top: 15px;
+    box-shadow: 0px 0px 8px 2px rgb(30, 49, 83);
+    background-color: #eae6ff;
+    margin-bottom: 30px;
+    display: none;
+}
+.code{
+    font-size: 15px;
+}
+.code p{
+    margin-left: 30px;
+    margin-top: 0px;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 600;
+    font-size: 15px;
+}
+.code p>b{
+    color: rgb(8, 0, 94);
+}
+#p_top{
+    color: brown;
+    margin-left: 5px;
+}
+#p_left{
+    color: brown;
+    margin-left: 5px;
+}
+#position p{
+    color: rgb(12, 0, 149);
+    font-size: 20px;
+}
+#position h1, #position h4{
+    color: rgb(10, 0, 125);
+}
+.absolute_button{
+    color: rgb(12, 0, 149);
+    border: 2px solid rgb(12, 0, 149);
+    cursor: pointer;
+    background-color: white;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 20px;
+}
+.absolute_button:hover{
+    color: white;
+    background-color: rgb(12, 0, 149);
+    border: 2px solid white;
+}
+.winning{
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.2);
+    perspective: 600px;
+    perspective-origin: center;
+    z-index: 1;
+}
+.win_icon{
+    position: absolute; 
+    top: calc(50% - 100px); 
+    transform: translateX(750%) rotateY(-30deg);
+}
+.winning_start{
+    animation-name: win;
+    animation-duration: 2s;
+    animation-timing-function: ease-in;
+}
+@keyframes win{
+    0%{transform: translateX(750%) rotateY(-30deg);}
+    30%{animation-timing-function: linear; transform: translateX(400%) rotateY(0deg);}
+    70%{animation-timing-function: ease-in-out; transform: translateX(250%) rotateY(0deg);}
+    100%{transform: translateX(-150%) rotateY(30deg);}
+}
+
+.losing{
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.2);
+    perspective: 600px;
+    perspective-origin: center;
+    z-index: 1;
+}
+.lose_icon{
+    position: absolute; 
+    top: calc(50% - 100px); 
+    transform: translateX(750%) rotateY(-30deg);
+}
+.lose_start{
+    animation-name: lose;
+    animation-duration: 2s;
+    animation-timing-function: ease-in;
+}
+@keyframes lose{
+    0%{transform: translateX(750%) rotateY(-30deg);}
+    30%{animation-timing-function: linear; transform: translateX(400%) rotateY(0deg);}
+    70%{animation-timing-function: ease-in-out; transform: translateX(250%) rotateY(0deg);}
+    100%{transform: translateX(-150%) rotateY(30deg);}
+}
+
+#tran_window1{
+    margin: 0 auto;
+    border-radius: 10px;
+    position: relative;
+    width: 80%;
+    padding-bottom: 30px;
+    top: 15px;
+    box-shadow: 0px 0px 8px 2px rgb(171, 140, 0);
+    background-color: rgb(255,229,115);
+    margin-bottom: 30px;
+    display: none;
+}
+#transform #tran_window1>p{
+    color: rgb(116, 79, 0);
+    font-size: 20px;
+    margin-left: 20px;
+    
+}
+#transform h1{
+    color: rgb(99, 68, 0);
+    font-size: 40px;
+    text-align: center;
+    position: relative;
+    top: 20px;
+}
+
+.q_smile{
+    width: 50px;
+    height: 50px;
+    border: 2px solid black;
+    background-color: yellow;
+    margin-left: 50px;
+    margin-top: 20px;
+    position: relative;
+}
+.q_smile_tramslateX{
+    animation-name: translateX;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-delay: 0.5s;
+}
+@keyframes translateX{
+    to{transform: translateX(100px);}
+}
+.q_smile_tramslateY{
+    animation-name: translateY;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-delay: 0.5s;
+}
+@keyframes translateY{
+    to{transform: translateY(100px);}
+}
+.q_smile_scaleX{
+    animation-name: scaleX;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-delay: 0.5s;
+}
+@keyframes scaleX{
+    to{transform: scaleX(2);}
+}
+.q_smile_scaleY{
+    animation-name: scaleY;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-delay: 0.5s;
+}
+@keyframes scaleY{
+    to{transform: scaleY(2);}
+}
+.q_smile_rotate{
+    animation-name: rotate;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-delay: 0.5s;
+}
+@keyframes rotate{
+    to{transform: rotate(180deg);}
+}
+.q_smile_skewX{
+    animation-name: skewX;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-delay: 0.5s;
+}
+@keyframes skewX{
+    to{transform: skewX(30deg);}
+}
+.q_smile_skewY{
+    animation-name: skewY;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-delay: 0.5s;
+}
+@keyframes skewY{
+    to{transform: skewY(30deg);}
+}
+.transform_button{
+    padding: 10px;
+    font-size: 20px;
+    background-color: rgb(255, 255, 76);
+    border: 3px solid rgb(131, 107, 0);
+    color: rgb(131, 107, 0);
+    border-radius: 10px;
+    cursor: pointer;
+}
+.transform_button:hover{
+    background-color: yellow;
+}
+#aaa:hover{
+    animation-name: rotate;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+}
+#bbb:hover{
+    animation-name: skewY;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+}
+#ccc:hover{
+    animation-name: skewX;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+}
+#ddd:hover{
+    animation-name: translateX;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+}
+#tran_window2{
+    margin: 0 auto;
+    border-radius: 10px;
+    position: relative;
+    width: 1000px;
+    padding-bottom: 30px;
+    top: 15px;
+    box-shadow: 0px 0px 8px 2px rgb(171, 140, 0);
+    background-color: rgb(255,229,115);
+    margin-bottom: 30px;
+    display: none;
+    overflow: hidden;
+}
+.tran_tran1{
+    transform: translateX(200px);
+}
+.tran_tran2{
+    transform: translateX(500px);
+}
+.tran_tran3{
+    transform: translateX(-200px);
+}
+.tran_tran4{
+    transform: translateX(-500px);
+}
+.police{}
+
+#tran_window3{
+    margin: 0 auto;
+    border-radius: 10px;
+    position: relative;
+    width: 80%;
+    padding-bottom: 30px;
+    top: 15px;
+    box-shadow: 0px 0px 8px 2px rgb(171, 140, 0);
+    background-color: rgb(255,229,115);
+    margin-bottom: 30px;
+    display: none;
+}
+#eee:hover{
+    animation-duration: 1s;
+    animation-name: eee;
+    animation-iteration-count: infinite;
+}
+@keyframes eee{
+    to{
+        transform: rotate(360deg);
+    }
+}
+#ggg:hover{
+    animation-name: scaleY;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+}
+#fff:hover{
+    animation-name: scaleX;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+}
+#flexbox1{
+    margin: 0 auto;
+    border-radius: 10px;
+    position: relative;
+    width: 80%;
+    padding-bottom: 30px;
+    top: 15px;
+    box-shadow: 0px 0px 8px 2px rgb(31, 145, 0);
+    background-color: rgb(103, 241, 103);
+    margin-bottom: 30px;
+    display: none;
+}
+#flexbox h1{
+    color: rgb(0, 88, 39);
+    font-size: 40px;
+    text-align: center;
+    position: relative;
+    top: 20px;
+}
+#flexbox p{
+    color: rgb(0, 92, 6);
+    font-size: 20px;
+    margin-left: 20px;
+    
+}
+.flexbox_button{
+    color: rgb(0, 88, 39);
+    border: 2px solid rgb(0, 92, 6);
+    cursor: pointer;
+    background-color: rgb(87, 248, 87);
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 20px;
+}
+.flexbox_button:hover{
+    color: darkorange;
+    background-color: rgb(0, 92, 6);
+    border: 2px solid rgb(7, 50, 0);
+}
+#flexbox2{
+    margin: 0 auto;
+    border-radius: 10px;
+    position: relative;
+    width: 80%;
+    padding-bottom: 30px;
+    top: 15px;
+    box-shadow: 0px 0px 8px 2px rgb(31, 145, 0);
+    background-color: rgb(103, 241, 103);
+    margin-bottom: 30px;
+    display: none;
+}
+#flexbox3{
+    margin: 0 auto;
+    border-radius: 10px;
+    position: relative;
+    width: 80%;
+    padding-bottom: 30px;
+    top: 15px;
+    box-shadow: 0px 0px 8px 2px rgb(31, 145, 0);
+    background-color: rgb(103, 241, 103);
+    margin-bottom: 30px;
+    display: none;
+}
+#flexbox4{
+    margin: 0 auto;
+    border-radius: 10px;
+    position: relative;
+    width: 80%;
+    padding-bottom: 30px;
+    top: 15px;
+    box-shadow: 0px 0px 8px 2px rgb(31, 145, 0);
+    background-color: rgb(103, 241, 103);
+    margin-bottom: 30px;
+    display: none;
+}

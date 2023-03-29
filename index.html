@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&family=Ubuntu:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="gameCSS.css">
+</head>
+<body>
+    <header id="header-navbar">
+        <img src="images/icon.png" alt="header icon" id="header-icon">
+        <a href="#" id="header-title">Code Tutor</a>
+        <div class="header-line"></div>
+
+        <div class="nav-link">
+            
+            <a href="#main-block" class="link">НАЧАЛО</a>
+            <a href="#games" class="link">ИГРЫ</a>
+            <a href="#info" class="link">ИНФО</a>
+            <a onclick="showModalWindow()" class="link">О НАС</a>
+        </div>
+    </header>
+
+    <div class="modal-window">
+        <div class="content">
+            <div class="close-modalWindow" onclick="closeModalWindow()">x</div>
+            <h2 id="window-title">О НАС</h2>
+            <p>Мы - начинающяя команда 3х Front-end разработчиков.</p>
+            
+            <h4 id="goal">Наша Цель</h4>
+            <p>Пришли мы в Хакатон только для того, чтобы набраться опыта!</p>
+
+        </div>
+    </div>
+    <main>
+        <div class="container main-block" id="main-block">
+            <img src="images/mainPage.png" alt="main picture" id="main-picture">
+            
+            <div class="main-answers">
+                <a class="answer-block-yellow">Чем вам может пригодиться этот сайт?</a>
+                <a class="answer-block-gray one">Ты сможешь укрепить свои навыки CSS!</a>
+                <a class="answer-block-gray two">Скорее начинай!</a>
+                <a href="#games" id="answer-a">НАЧАТЬ</a>
+            </div>
+        </div>
+
+        <div class="container" id="info">
+            <h2 class="title">ИНФО</h2>
+            <p class="text">Для кого подойдут эти обучающие игры?</p>
+            <div class="displayflex">
+                <img src="images/info-picture.png" alt="block2 picture" id ="info-picture">
+                <div class="info-texts">
+                    <p id="info-text1">Сайт предназначен для тех, кто знает самые основы HTML и CSS.</p>
+                    <p id="info-text2">Также мы поможем вам закрепить свои знания!</p>
+                    <p></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="container" id="games">
+            <h2 class="title">ИГРЫ</h2>
+            <p class="text">Переходя на каждый уровень, вы будете практиковаться в освоении или закреплении определенного навыка!</p>
+            <div class="games-grid">
+                <a onclick="absolute_1page()" class="grid-a">POSITION</a>
+                <a onclick="tran_1page()" class="grid-a">TRANSFORM</a>
+                <a onclick="flexbox_1page()" class="grid-a">FLEXBOX</a>
+            </div>
+        </div>
+    </main>
+
+
+
+
+
+    <!--ИГРЫ-->
+    <!--Анимации выйгрыша и проигрыша-->
+    <div class="winning">
+        <div class="win_icon">
+            <p style="font-size: 100px; text-align: center;">&#128516</p>
+            <p style="color: white; font-size: 30px; text-align: center;">Правильно!</p>
+        </div>
+    </div>
+    <div class="losing">
+        <div class="lose_icon">
+            <p style="font-size: 100px; text-align: center;">&#128531</p>
+            <p style="color: white; font-size: 30px; text-align: center;">Не правильно...</p>
+        </div>
+    </div>
+
+
+    <!--  position: absolute   -->
+    <div id="back_window">
+        <div id="position">
+            <div id="window2">
+                <h1 style="text-align: center; font-size: 40px; position: relative; top: 20px">Свойство position: absolute</h1>
+                <p style="font-size: 20px; text-align: center; width: 90%; margin: 30px auto;">Устанавливает способ позиционирования элемента относительно окна браузера или других объектов на веб-странице.</p>
+                <p style="font-size: 20px; margin-left: 30px;">Рассмотрим следующее изоображение:</p>
+                <div style="display: flex;">
+                    <img src="absolute2.png" width="150px" style="margin-left: 30px;">
+                    <div>
+                        <p style="font-size: 20px; margin: 10px 20px; color: rgb(10, 0, 118);">Когда мы создаем некий дочерний элемент в родительский блок, то (без никаких дополнительных свойств) данный объект всегда распологается в левом верхнем углу.</p>
+                        <p style="font-size: 12px;">*Если в блоке содержится один или несколько элементов, то данный блок называется <b>родительским</b>.</p>
+                        <p style="font-size: 12px;">*Если элемент принадлежин какому либо блоку, он называется <b>дочерним</b>.</p>
+                    </div>
+                </div>
+                <p style="font-size: 20px; margin: 40px 20px 0 20px;">Когда мы указываем наше свойство, то с первого взгляда ничего не поменялось, однако мы установили для нашего дочернего элемента невидимую обратную координатную плоскость, в которой блок стоит по умолчанию на координатах Y:0 и X:0</p>
+                <div style="display: flex; justify-content: space-evenly;">
+                    <div style="display: flex; padding-left: 0px;">
+                        <div class="code" style="margin-left: 30px; margin-top: 20px;">
+                            <h4>.cube{</h4>
+                            <p>background-color: red;</p>
+                            <p>width: 100px;</p>
+                            <p>height: 100px;</p>
+                            <p><b>position: absolute;</b></p>
+                            <h4>}</h4>
+                        </div>
+                        <img src="absolute1.png" width="150" height="150" style="margin-top: 20px; margin-left: 30px;">
+                    </div>
+                    <div style="border-left: 2px solid rgb(10, 0, 118); width: 50%;">
+                        <p style="width: 80%; text-align: center; margin-top: 50px;">Однако для управлением координатными точками требуется вспомогательное свойство <b>top</b> и <b>left</b></p>
+                        <p style="font-size: 12px; margin: 10px 20px 0 20px;">*Обратная координатная плоскость, в котором положительный коэффицент Y направлен вниз</p>
+                    </div>
+                </div>
+                <h1 style="text-align: center; font-size: 40px; position: relative; top: 20px">Свойства top и left</h1>
+                <p style="margin-left: 30px; margin-top: 30px;">*Они регулируют местоположение, в котором будет находиться элемент</p>
+                <p style="font-size: 20px; margin: 20px 30px">Свойство top отвечает за вертикальное положение объекта:</p>
+                <div style="display: flex; margin-top: 20px; margin-left: 30px;">
+                    <img src="absolute3.png" width="200">
+                    <div class="code">
+                        <h4>.cube{</h4>
+                        <p>background-color: red;</p>
+                        <p>width: 100px;</p>
+                        <p>height: 100px;</p>
+                        <p>position: absolute;</p>
+                        <p><b>top: 15px;</b></p>
+                        <h4>}</h4>
+                    </div>
+                </div>
+                <p style="font-size: 20px; margin: 0 30px">Свойство left отвечает за горизонтальное положение объекта:</p>
+                <div style="display: flex; margin-top: 20px; margin-left: 30px;">
+                    <img src="absolute4.png" width="200">
+                    <div class="code">
+                        <h4>.cube{</h4>
+                        <p>background-color: red;</p>
+                        <p>width: 100px;</p>
+                        <p>height: 100px;</p>
+                        <p>position: absolute;</p>
+                        <p>top: 15px;</p>
+                        <p><b>left: 30px;</b></p>
+                        <h4>}</h4>
+                    </div>
+                </div>
+                <div style="display: flex; justify-content: space-around; margin-top: 50px;">
+                    <button class="absolute_button" onclick="absolute_close()">Вернуться</button>
+                    <button class="absolute_button" onclick="absolute_next()">Следующее</button>
+                </div>
+            </div>
+
+
+
+            <div id="window1">
+                <h1 style="text-align: center; position: relative; top: 20px; font-size: 40px;">Мини Игра</h1>
+                <p style="font-size: 20px; text-align: center; width: 90%; margin: 30px auto;">В данной игре вам следует ввести правильные координаты для красного квадрата, чтобы он полностью входил в зеленую область. Вам поможет настройка координаты X и Y.</p>
+                <p style="font-size: 24px; text-align: center; font-weight: 500;">1 задание</p>
+                <!--игра-->
+                <div style="display: flex; justify-content: space-evenly;">
+                    <div class="code">
+                        <h4>.cube{</h4>
+                        <p>border: 1px solid black;</p>
+                        <p>background-color: red;</p>
+                        <p>width: 100px;</p>
+                        <p>height: 100px;</p>
+                        <p>position: absolute;</p>
+                        <div style="display: flex;">
+                            <p>top:</p>
+                            <input type="number" id="answer1" style="margin-top: 5px; width: 50px; height: 10px; margin-left: 5px; border: 2px solid rgb(12, 0, 149); border-radius: 5px;" value="">
+                            <p style="margin-left: 0;">px;</p>
+                        </div>
+                        <div style="display: flex;">
+                            <p>left:</p>
+                            <input type="number" id="answer2" style="margin-top: 5px; width: 50px; height: 10px; margin-left: 5px; border: 2px solid rgb(12, 0, 149); border-radius: 5px;" value="">
+                            <p style="margin-left: 0;">px;</p>
+                        </div>
+                        <h4 style="margin-top: -10px;">}</h4>
+                        <button onclick="answer()" style="margin-top: 30px;" class="absolute_button">ОТПРАВИТЬ</button>
+                    </div>
+                    <div>
+                        <div style="display: flex; justify-content: space-evenly;">
+                            <div>
+                                <input type="range" id="range1" value="0" min="0" max="499" style="width: 200px;">
+                                <div style="display: flex;">
+                                    <p>X:</p>
+                                    <p id="p_left">0px</p>
+                                </div>
+                            </div>
+                            <div>
+                                <input type="range" id="range2" value="0" min="0" max="399" style="width: 200px;">
+                                <div style="display: flex;">
+                                    <p>Y:</p>
+                                    <p id="p_top">0px</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="border: 3px solid black; background-color: rgb(255, 224, 138); width: 600px; height: 500px; position: relative; margin-top: 20px;">
+                            <div style="background-color: rgba(46, 228, 0, 0.89); width: 110px; height: 110px; position: absolute; top: 237px; left: 300px;"></div>
+                            <div class="divka" style="border: 1px solid rgb(117, 117, 117); background-color: red; width: 100px; height: 100px; position: absolute; top: 0px; left: 0px;">
+                                <div style="border: 1px solid purple; background-color: purple; width: 3px; height: 3px; border-radius: 50%; position: absolute; top: -2px; left: -2px;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div style="display: flex; justify-content: space-around; margin-top: 30px;">
+                    <button class="absolute_button" onclick="absolute_prev()">Предыдущий</button>
+                    <button class="absolute_button" onclick="absolute_close()">Закончить</button>
+                </div>
+            </div>
+        </div>
+
+        <!--transform-->
+        <div id="transform">
+            <div id="tran_window1">
+                <h1>Свойство transform</h1>
+                <p style="margin-top: 20px;">Трансформирует блок в другом виде или месте. Часто применяется со свойством <b>transition</b>.</p>
+                <h1 style="font-size: 30px;">Виды трансформации</h1>
+                <p style="margin-top: 30px;"><b>translateX(100px)</b> - перемещает объект по оси Х</p>
+                <!--SMILE-->
+                <div class="q_smile q_smile_tramslateX">
+                    <div style="background-color: black; border-radius: 50%; width: 4px; height: 4px; position: absolute; top: 10px; left: 15px;"></div>
+                    <div style="background-color: black; border-radius: 50%; width: 4px; height: 4px; position: absolute; top: 10px; right: 15px;"></div>
+                    <div style="border-bottom: 3px solid black; width: 30px; position: absolute; top: 35px; left: 10px;"></div>
+                </div>
+                <p style="margin-top: 10px;"><b>translateY(100px)</b> - перемещает объект по оси Y</p>
+                <div style="height: 130px;">
+                    <div class="q_smile q_smile_tramslateY">
+                        <div style="background-color: black; border-radius: 50%; width: 4px; height: 4px; position: absolute; top: 10px; left: 15px;"></div>
+                        <div style="background-color: black; border-radius: 50%; width: 4px; height: 4px; position: absolute; top: 10px; right: 15px;"></div>
+                        <div style="border-bottom: 3px solid black; width: 30px; position: absolute; top: 35px; left: 10px;"></div>
+                    </div>
+                </div>
+                <p style="margin-top: 25px; "><b>scaleX(2)</b> - увеличивает объект по оси X</p>
+                <div class="q_smile q_smile_scaleX">
+                    <div style="background-color: black; border-radius: 50%; width: 4px; height: 4px; position: absolute; top: 10px; left: 15px;"></div>
+                    <div style="background-color: black; border-radius: 50%; width: 4px; height: 4px; position: absolute; top: 10px; right: 15px;"></div>
+                    <div style="border-bottom: 3px solid black; width: 30px; position: absolute; top: 35px; left: 10px;"></div>
+                </div>
+                <p style="margin-top: 10px;"><b>scaleY(2)</b> - увеличивает объект по оси Y</p>
+                <div class="q_smile q_smile_scaleY" style="margin-top: 30px;">
+                    <div style="background-color: black; border-radius: 50%; width: 4px; height: 4px; position: absolute; top: 10px; left: 15px;"></div>
+                    <div style="background-color: black; border-radius: 50%; width: 4px; height: 4px; position: absolute; top: 10px; right: 15px;"></div>
+                    <div style="border-bottom: 3px solid black; width: 30px; position: absolute; top: 35px; left: 10px;"></div>
+                </div>
+                <p style="margin-top: 30px;"><b>rotate(180deg)</b> - поворачивает объект на заданное количество градусов</p>
+                <div class="q_smile q_smile_rotate" style="margin-top: 30px;">
+                    <div style="background-color: black; border-radius: 50%; width: 4px; height: 4px; position: absolute; top: 10px; left: 15px;"></div>
+                    <div style="background-color: black; border-radius: 50%; width: 4px; height: 4px; position: absolute; top: 10px; right: 15px;"></div>
+                    <div style="border-bottom: 3px solid black; width: 30px; position: absolute; top: 35px; left: 10px;"></div>
+                </div>
+                <p style="margin-top: 10px;"><b>skewX(30deg)</b> - задает наклон элемента по оси X</p>
+                <div class="q_smile q_smile_skewX" style="margin-top: 30px;">
+                    <div style="background-color: black; border-radius: 50%; width: 4px; height: 4px; position: absolute; top: 10px; left: 15px;"></div>
+                    <div style="background-color: black; border-radius: 50%; width: 4px; height: 4px; position: absolute; top: 10px; right: 15px;"></div>
+                    <div style="border-bottom: 3px solid black; width: 30px; position: absolute; top: 35px; left: 10px;"></div>
+                </div>
+                <p style="margin-top: 10px;"><b>skewY(30deg)</b> - задает наклон элемента по оси Y</p>
+                <div class="q_smile q_smile_skewY" style="margin-top: 30px;">
+                    <div style="background-color: black; border-radius: 50%; width: 4px; height: 4px; position: absolute; top: 10px; left: 15px;"></div>
+                    <div style="background-color: black; border-radius: 50%; width: 4px; height: 4px; position: absolute; top: 10px; right: 15px;"></div>
+                    <div style="border-bottom: 3px solid black; width: 30px; position: absolute; top: 35px; left: 10px;"></div>
+                </div>
+                <div style="display: flex; justify-content: space-around; margin-top: 70px;">
+                    <div id="aaa">
+                        <button class="transform_button" onclick="tran_close()">Вернуться</button>
+                    </div>
+                    <div id="bbb">
+                        <button class="transform_button" onclick="tran_2page()">Следующее</button>
+                    </div>
+                </div>
+            </div>
+            <div id="tran_window2">
+                <h1>Мини Игры</h1>
+                <h1 style="font-size: 30px;">Задание 1</h1>
+                <h1 style="font-size: 20px; text-align: left; margin-left: 30px;">Догони преступника! Что нужно ввести в translateX для полицейской машины?</p>
+                <div style="font-size: 80px; margin-top: 30px; margin-left: 100px;">&#128665</div>
+                <div style="font-size: 80px; position: absolute; top: 61px; right: 180px; transition-duration: 2s;" class="police">&#128659</div>
+                <div style="display: flex; justify-content: space-evenly; width: 80%; margin: 30px auto;">
+                    <button class="transform_button" onclick="tran_2pageR(1)">200px</button>
+                    <button class="transform_button" onclick="tran_2pageR(2)">500px</button>
+                    <button class="transform_button" onclick="tran_2pageR(3)">-200px</button>
+                    <button class="transform_button" onclick="tran_2pageR(4)">-500px</button>
+                </div>
+                <div style="display: flex; justify-content: space-around; margin-top: 70px; margin-bottom: 30px;">
+                    <div id="ccc">
+                        <button class="transform_button" onclick="tran_1page()">Вернуться</button>
+                    </div>
+                    <div id="ddd">
+                        <button class="transform_button" onclick="tran_3page()">Следующее</button>
+                    </div>
+                </div>
+            </div>
+            <div id="tran_window3">
+                <h1 style="font-size: 30px;">Задание 2</h1>
+                <h1 style="font-size: 20px; text-align: left; margin-left: 30px;">Кто является преступником?</p>
+                <p style="font-size: 50px; position: absolute; left: calc(50% - 30px)">&#128104;&#8205;&#9877;&#65039;</p>
+                <p style="font-size: 50px; position: absolute; left: 20%; top: 200px">&#128105;&#8205;&#128188;</p>
+                <p style="font-size: 50px; position: absolute; right: 20%; top: 200px">&#128590;</p>
+                <img src="robber.png" style="width: 50px; position: absolute; left: calc(50% - 25px); top: 350px;">
+                <div style="border-bottom: 3px solid rgb(99, 68, 0); width: 200px; position: absolute; left: 20%; transform: rotate(45deg); top: 100px;"></div>
+                <div style="border-bottom: 3px solid rgb(99, 68, 0); width: 200px; position: absolute; right: 20%; transform: rotate(45deg); top: 400px;"></div>
+                <div style="border-bottom: 3px solid rgb(99, 68, 0); width: 200px; position: absolute; left: 20%; transform: rotate(-45deg); top: 400px;"></div>
+                <div style="border-bottom: 3px solid rgb(99, 68, 0); width: 200px; position: absolute; right: 20%; transform: rotate(-45deg); top: 100px;"></div>
+                <!--стрелка-->
+                <div style="font-size: 60px; position: absolute; left: calc(50% - 25px); top: 200px; transition-duration: 1s; transform: ;" id="arrow">&#11014;</div>
+                <div style="margin-top: 450px;">
+                    <p>Напиши, как можно <b>указать</b> на виновного</p>
+                    <div class="code">
+                        <div style="display: flex; margin-top: 10px;">
+                            <p>transform: rotate(</p>
+                            <input type="number" value="0" id="tran_num" style="width: 40px; height: 10px; border: 1pxs solid rgb(99, 68, 0); background-color: rgb(255, 224, 138); outline: none; margin-top: 5px;">
+                            <p style="margin: 0;">deg);</p>
+                        </div>
+                    </div>
+                </div>
+                <div id="eee" style="display: block; position: absolute; left: calc(50% - 50px)">
+                    <button class="transform_button" onclick="tran_answer2()" style="font-size: 15px; padding: 5px;">Отправить</button>
+                </div>
+                <div style="display: flex; justify-content: space-around; margin-top: 70px; margin-bottom: 30px;">
+                    <div id="ggg">
+                        <button class="transform_button" onclick="tran_2page()">Вернуться</button>
+                    </div>
+                    <div id="fff">
+                        <button class="transform_button" onclick="tran_close()">Закрыть</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="flexbox">
+            <div id="flexbox1">
+                <h1>Свойсто display: flex</h1>
+                <p style="margin-top: 20px;">Обычно, когда мы создаем несколько элементов в родительский блок, то они стоят на левом крае в ряд с вверху вниз.</p>
+                <img src="flexbox_img1.png">
+                <p>Однако, если мы в родительский блок запишем свойство <b>display: flex</b>, то дочерние элементы встанут в ряд</p>
+                <div style="display: flex; justify-content: space-evenly;">
+                    <div class="code" style="margin-top: 30px;">
+                        <h4>#parent{</h4>
+                        <p>border: 3px solid black;</p>
+                        <p>background-color: #efe4b0;</p>
+                        <p>width: 150px;</p>
+                        <p>height: 100px;</p>
+                        <p><b>display: flex;</b></p>
+                        <h4>}</h4>
+                    </div>
+                    <img src="flexbox_img2.png">
+                </div>
+                <p style="margin-top: -50px;">Многие знают про вспомогательное свойство justify-content, однако мало кто знает про еще два свойства: <b>flex-direction</b> и <b>align-items</b></p>
+                <h1>flex-direction</h1>
+                <p style="margin-top: 20px;">Отвечает за расставление блоков:</p>
+                <div style="display: flex; justify-content: space-evenly; margin-top: 20px;">
+                    <div>
+                        <p>flex-direction: row-reverse</p>
+                        <div style="width: 180px; height: 140px; border: 1px solid black; background-color: bisque; display: flex; flex-direction: row-reverse; margin: 0 auto;">
+                            <div style="border: 2px solid black; background-color: red; display: flex; justify-content: center; align-items: center; width: 40px; height: 40px;">
+                                <p style="color: black">1</p>
+                            </div>
+                            <div style="border: 2px solid black; background-color: red; display: flex; justify-content: center; align-items: center; width: 40px; height: 40px;">
+                                <p style="color: black">2</p>
+                            </div>
+                            <div style="border: 2px solid black; background-color: red; display: flex; justify-content: center; align-items: center; width: 40px; height: 40px;">
+                                <p style="color: black">3</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <p>flex-direction: column</p>
+                        <div style="width: 180px; height: 140px; border: 1px solid black; background-color: bisque; display: flex; flex-direction: column; margin: 0 auto;">
+                            <div style="border: 2px solid black; background-color: red; display: flex; justify-content: center; align-items: center; width: 40px; height: 40px;">
+                                <p style="color: black">1</p>
+                            </div>
+                            <div style="border: 2px solid black; background-color: red; display: flex; justify-content: center; align-items: center; width: 40px; height: 40px;">
+                                <p style="color: black">2</p>
+                            </div>
+                            <div style="border: 2px solid black; background-color: red; display: flex; justify-content: center; align-items: center; width: 40px; height: 40px;">
+                                <p style="color: black">3</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <p>flex-direction: column-reverse</p>
+                        <div style="width: 180px; height: 140px; border: 1px solid black; background-color: bisque; display: flex; flex-direction: column-reverse; margin: 0 auto;">
+                            <div style="border: 2px solid black; background-color: red; display: flex; justify-content: center; align-items: center; width: 40px; height: 40px;">
+                                <p style="color: black">1</p>
+                            </div>
+                            <div style="border: 2px solid black; background-color: red; display: flex; justify-content: center; align-items: center; width: 40px; height: 40px;">
+                                <p style="color: black">2</p>
+                            </div>
+                            <div style="border: 2px solid black; background-color: red; display: flex; justify-content: center; align-items: center; width: 40px; height: 40px;">
+                                <p style="color: black">3</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <h1>align-items</h1>
+                <p style="margin-top: 30px;">Выравнивает дочерние блоки по поперечной оси</p>
+                <div style="display: flex; justify-content: space-evenly; margin-top: 20px;">
+                    <div>
+                        <p>align-itenms: center</p>
+                        <div style="width: 180px; height: 140px; border: 1px solid black; background-color: bisque; display: flex; align-items: center; margin: 0 auto;">
+                            <div style="border: 2px solid black; background-color: red; display: flex; justify-content: center; align-items: center; width: 40px; height: 40px;">
+                                <p style="color: black">1</p>
+                            </div>
+                            <div style="border: 2px solid black; background-color: red; display: flex; justify-content: center; align-items: center; width: 40px; height: 40px;">
+                                <p style="color: black">2</p>
+                            </div>
+                            <div style="border: 2px solid black; background-color: red; display: flex; justify-content: center; align-items: center; width: 40px; height: 40px;">
+                                <p style="color: black">3</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <p>align-itenms: flex-end</p>
+                        <div style="width: 180px; height: 140px; border: 1px solid black; background-color: bisque; display: flex; align-items: flex-end; margin: 0 auto;">
+                            <div style="border: 2px solid black; background-color: red; display: flex; justify-content: center; align-items: center; width: 40px; height: 40px;">
+                                <p style="color: black">1</p>
+                            </div>
+                            <div style="border: 2px solid black; background-color: red; display: flex; justify-content: center; align-items: center; width: 40px; height: 40px;">
+                                <p style="color: black">2</p>
+                            </div>
+                            <div style="border: 2px solid black; background-color: red; display: flex; justify-content: center; align-items: center; width: 40px; height: 40px;">
+                                <p style="color: black">3</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div style="margin-top: 30px; display: flex; justify-content: space-evenly;">
+                    <button class="flexbox_button" onclick="flexbox_close()">Вернуться</button>
+                    <button class="flexbox_button" onclick="flexbox_2page()">Следующий</button>
+                </div>
+            </div>
+            <div id="flexbox2">
+                <h1>Мини Игра</h1>
+                <p style="margin-top: 20px;">Солдатам дали поручение построиться в определенный ряд, однако они не понимают как. Но, к счастью, они оказались фронтенд-разработчиками!</p>
+                <p>Помоги им справиться с заданием. Какие свойства нужно добавить в их поле постройки?</p>
+                <div style="display: flex; justify-content: space-evenly;">
+                    <div style="border: 2px solid black; background-color: white; border-radius: 10px; width: 300px; padding-bottom: 20px;">
+                        <form style="margin-left: 20px; margin-top: 20px;">
+                            <input type="checkbox" name="1var" id="1.1var">
+                            <label>flex-direction: row-reverse</label><br>
+                            <input type="checkbox" name="2var" id="1.2var">
+                            <label>flex-direction: column</label><br>
+                            <input type="checkbox" name="3var" id="1.3var">
+                            <label>flex-direction: column-reverse</label><br>
+                            <input type="checkbox" name="4var" id="1.4var">
+                            <label>align-items: center</label><br>
+                            <input type="checkbox" name="4var" id="1.5var">
+                            <label>align-items: flex-end</label><br>
+                            <button type="button" onclick="flex_1answer()" class="flexbox_button" style="position: absolute; top: 77%;">Ответить</button>
+                        </form>
+                    </div>
+                    <div style="width: 500px; height: 400px; border: 2px solid black; background-color: greenyellow; display: flex; position: relative;" id="field1">
+                        <p style="color: rgba(0, 0, 0, 0.4); position: absolute; top: 350px; left: 230px;">1</p>
+                        <p style="color: rgba(0, 0, 0, 0.4); position: absolute; top: 265px; left: 230px;">2</p>
+                        <p style="color: rgba(0, 0, 0, 0.4); position: absolute; top: 180px; left: 230px;">3</p>
+                        <div style="border: 3px solid burlywood; background-color: bisque; width: 80px; height: 80px; border-radius: 50%;"><p>1</p></div>
+                        <div style="border: 3px solid burlywood; background-color: bisque; width: 80px; height: 80px; border-radius: 50%;"><p>2</p></div>
+                        <div style="border: 3px solid burlywood; background-color: bisque; width: 80px; height: 80px; border-radius: 50%;"><p>3</p></div>
+                    </div>
+                </div>
+                <div style="display: flex; justify-content: space-evenly; margin-top: 30px;">
+                    <button class="flexbox_button" onclick="flexbox_1page()">Предыдущая</button>
+                    <button class="flexbox_button" onclick="flexbox_3page()">Следующая</button>
+                </div>
+            </div>
+            <div id="flexbox3">
+                <div style="display: flex; justify-content: space-evenly; position: relative; top: 30px;">
+                    <div style="border: 2px solid black; background-color: white; border-radius: 10px; width: 300px; padding-bottom: 20px; position: relative;">
+                        <form style="margin-left: 20px; margin-top: 20px;">
+                            <input type="checkbox" name="1var" id="2.1var">
+                            <label>flex-direction: row-reverse</label><br>
+                            <input type="checkbox" name="2var" id="2.2var">
+                            <label>flex-direction: column</label><br>
+                            <input type="checkbox" name="3var" id="2.3var">
+                            <label>flex-direction: column-reverse</label><br>
+                            <input type="checkbox" name="4var" id="2.4var">
+                            <label>align-items: center</label><br>
+                            <input type="checkbox" name="4var" id="2.5var">
+                            <label>align-items: flex-end</label><br>
+                        </form>
+                        <button type="button" onclick="flex_2answer()" class="flexbox_button" style="position: absolute; top: 90%; margin-left: 30px;">Ответить</button>
+                    </div>
+                    <div style="width: 500px; height: 400px; border: 2px solid black; background-color: greenyellow; display: flex; position: relative;" id="field2">
+                        <p style="color: rgba(0, 0, 0, 0.4); position: absolute; top: 350px; right: 40px;">1</p>
+                        <p style="color: rgba(0, 0, 0, 0.4); position: absolute; top: 350px; right: 120px;">2</p>
+                        <p style="color: rgba(0, 0, 0, 0.4); position: absolute; top: 350px; right: 200px;">3</p>
+                        <div style="border: 3px solid burlywood; background-color: bisque; width: 80px; height: 80px; border-radius: 50%;"><p>1</p></div>
+                        <div style="border: 3px solid burlywood; background-color: bisque; width: 80px; height: 80px; border-radius: 50%;"><p>2</p></div>
+                        <div style="border: 3px solid burlywood; background-color: bisque; width: 80px; height: 80px; border-radius: 50%;"><p>3</p></div>
+                    </div>
+                </div>
+                <div style="display: flex; justify-content: space-evenly; margin-top: 50px;">
+                    <button class="flexbox_button" onclick="flexbox_2page()">Предыдущая</button>
+                    <button class="flexbox_button" onclick="flexbox_4page()">Следующая</button>
+                </div>
+            </div>
+            <div id="flexbox4">
+                <div style="display: flex; justify-content: space-evenly; position: relative; top: 30px;">
+                    <div style="border: 2px solid black; background-color: white; border-radius: 10px; width: 300px; padding-bottom: 20px; position: relative;">
+                        <form style="margin-left: 20px; margin-top: 20px;">
+                            <input type="checkbox" name="1var" id="3.1var">
+                            <label>flex-direction: row-reverse</label><br>
+                            <input type="checkbox" name="2var" id="3.2var">
+                            <label>flex-direction: column</label><br>
+                            <input type="checkbox" name="3var" id="3.3var">
+                            <label>flex-direction: column-reverse</label><br>
+                            <input type="checkbox" name="4var" id="3.4var">
+                            <label>align-items: center</label><br>
+                            <input type="checkbox" name="4var" id="3.5var">
+                            <label>align-items: flex-end</label><br>
+                        </form>
+                        <button type="button" onclick="flex_3answer()" class="flexbox_button" style="position: absolute; top: 90%; margin-left: 30px;">Ответить</button>
+                    </div>
+                    <div style="width: 500px; height: 400px; border: 2px solid black; background-color: greenyellow; display: flex; position: relative;" id="field3">
+                        <p style="color: rgba(0, 0, 0, 0.4); position: absolute; bottom: 350px; left: 230px;">1</p>
+                        <p style="color: rgba(0, 0, 0, 0.4); position: absolute; bottom: 265px; left: 230px;">2</p>
+                        <p style="color: rgba(0, 0, 0, 0.4); position: absolute; bottom: 180px; left: 230px;">3</p>
+                        <div style="border: 3px solid burlywood; background-color: bisque; width: 80px; height: 80px; border-radius: 50%;"><p>1</p></div>
+                        <div style="border: 3px solid burlywood; background-color: bisque; width: 80px; height: 80px; border-radius: 50%;"><p>2</p></div>
+                        <div style="border: 3px solid burlywood; background-color: bisque; width: 80px; height: 80px; border-radius: 50%;"><p>3</p></div>
+                    </div>
+                </div>
+                <div style="display: flex; justify-content: space-evenly; margin-top: 50px;">
+                    <button class="flexbox_button" onclick="flexbox_3page()">Предыдущая</button>
+                    <button class="flexbox_button" onclick="flexbox_close()">Завершить</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="js/gameJS.js"></script>
+    <script src="js/jquery-3.6.4.js"></script>
+    <script src="js/animationLink.js"></script>
+    <script src="js/modalWindow.js"></script>
+</body> 
+</html>
